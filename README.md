@@ -1,5 +1,12 @@
 ## External dependencies
-### Rules jvm external 3.4 or above
+This repository is an introduction to using Bazel as build system for a Java project 
+that uses external dependencies from Maven or Private repositories. It shows how you can
+use Bazel to fetch/download them and then use it in your source code.
+### Requirements
+- Bazel build
+- rules_jvm_external v3.4 or above
+
+### Rules jvm external
 ```bazel
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
@@ -24,7 +31,7 @@ rules_jvm_external_setup()
 load("@rules_jvm_external//:defs.bzl", "maven_install")
 ```
 ### Maven install
-Maven install is the interface with external artifacts. Through it you can fetch/download
+Maven install is the interface with external artifacts. Through it, you can fetch/download
 and use artifacts as dependencies in your source code.
 
 If you give no `name` to `maven_install` rule, it will automatically set it to `maven`
